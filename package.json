@@ -14,7 +14,7 @@
     "build": "cross-env NODE_ENV=production rollup -c",
     "watch": "cross-env NODE_ENV=production rollup -cw",
     "prepublishOnly": "npm run build",
-    "postreleasy": "npm publish",
+    "postreleasy": "npm publish --access public",
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "lint-fix": "eslint --ext js,jsx,ts,tsx  --fix --max-warnings 0 .",
     "format": "prettier --write \"**/*.{ts,js,json}\"",
