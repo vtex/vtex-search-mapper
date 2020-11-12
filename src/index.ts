@@ -1,3 +1,6 @@
+import { BiggySearchProduct, BiggySearchResult } from './biggy'
+import { CatalogApiProduct } from './catalog'
+
 export function convertFromBiggyProductsToCatalogApiProducts(
   _products: BiggySearchProduct[]
 ): CatalogApiProduct[] {
@@ -5,3 +8,5 @@ export function convertFromBiggyProductsToCatalogApiProducts(
 
   return newProducts
 }
+
+export { BiggySearchProduct, BiggySearchResult, CatalogApiProduct }

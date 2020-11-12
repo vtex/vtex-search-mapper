@@ -26,7 +26,7 @@ interface CatalogApiSku {
   estimatedDateArrival: null
 }
 
-interface CatalogApiProduct {
+export interface CatalogApiProduct {
   productId: string
   productName: string
   brand: string
@@ -46,5 +46,5 @@ interface CatalogApiProduct {
   link: string
   completeSpecifications: Specification[]
   description: string
-  items: CatalogSku[]
+  items: CatalogApiSku[]
 }

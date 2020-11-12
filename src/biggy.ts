@@ -9,7 +9,7 @@ interface BiggySearchSku {
   sellers: Array<Record<string, any>>
 }
 
-interface BiggySearchProduct {
+export interface BiggySearchProduct {
   skus: BiggySearchSku[]
   unitMultiplier: number
   year: number
@@ -53,7 +53,7 @@ interface BiggySearchProduct {
   priceText: string
 }
 
-interface BiggySearchResult {
+export interface BiggySearchResult {
   total: number
   products: BiggySearchProduct[]
   pagination: {
