@@ -1,0 +1,53 @@
+{
+  "name": "@vtex/vtex-search-mapper",
+  "version": "0.0.1",
+  "description": "Be a utility library to translate form VTEX Search results to VTEX Catalog json format",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test jest --coverage",
+    "jest": "cross-env NODE_ENV=test jest --watch --verbose --coverage=false",
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "watch": "cross-env NODE_ENV=production rollup -cw",
+    "prepublishOnly": "npm run build",
+    "postreleasy": "npm publish",
+    "lint": "eslint --ext js,jsx,ts,tsx .",
+    "lint-fix": "eslint --ext js,jsx,ts,tsx  --fix --max-warnings 0 .",
+    "format": "prettier --write \"**/*.{ts,js,json}\"",
+    "release": "releasy --stable",
+    "release-minor": "releasy minor --stable",
+    "release-major": "releasy major --stable"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtex/vtex-search-mapper.git"
+  },
+  "keywords": [
+    "VTEX",
+    "Search",
+    "Catalog",
+    "API"
+  ],
+  "author": "inStore Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vtex/vtex-search-mapper/issues"
+  },
+  "homepage": "https://github.com/vtex/vtex-search-mapper#readme",
+  "devDependencies": {
+    "@vtex/prettier-config": "^0.3.3",
+    "@vtex/tsconfig": "^0.5.2",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.13.0",
+    "eslint-config-vtex": "^12.8.8",
+    "eslint-plugin-vtex": "^2.0.5",
+    "prettier": "^2.1.2",
+    "rollup": "^2.33.1",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "typescript": "^4.0.5"
+  }
+}
