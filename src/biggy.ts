@@ -1,12 +1,29 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+interface BiggySkuSeller {
+  oldPrice?: number
+  price?: number
+  name: string
+  tax: number
+  id: string
+  stock?: number
+}
+
+interface BiggySkuPolicy {
+  id: string
+  sellers: BiggySkuSeller[]
+}
+
 interface BiggySearchSku {
   id: string
   idWithSplit: string
   reference: string
-  policies: Array<Record<string, any>>
-  attributes: Array<Record<string, any>>
-  sellers: Array<Record<string, any>>
+  policies: BiggySkuPolicy[]
+  attributes: Array<{
+    value: string
+    key: string
+  }>
+  sellers: BiggySkuSeller[]
 }
 
 export interface BiggySearchProduct {
@@ -23,30 +40,54 @@ export interface BiggySearchProduct {
   showIfNotAvailable: boolean
   price: number
   customSort: number
-  clusterHighlights: Record<string, any>
-  stickers: Array<Record<string, any>>
+  clusterHighlights: Record<string, string>
+  stickers: Array<Record<string, string>>
   id: string
-  categories: Array<Record<string, any>>
+  categories: string[]
   stock: number
   brand: string
-  availableTradePolicies: Array<Record<string, any>>
+  availableTradePolicies: string[]
   timestamp: number
-  categoryTrees: Array<Record<string, any>>
-  images: Array<Record<string, any>>
+  categoryTrees: Array<{
+    categoryNames: string[]
+    categoryIds: string[]
+  }>
+  images: Array<{ value: string }>
   product: string
   oldPrice: number
   locationAttributes: Array<Record<string, any>>
   tax: number
-  productSpecifications: Array<Record<string, any>>
+  productSpecifications: string[]
   url: string
   measurementUnit: string
   storeSplitAttribute: string
-  categoryIds: Array<Record<string, any>>
-  textAttributes: Array<Record<string, any>>
+  categoryIds: string[]
+  textAttributes: Array<{
+    valueId: string
+    isFilter: boolean
+    labelValue: string
+    labelKey: string
+    value: string
+    key: string
+  }>
   brandId: string
-  installment: Record<string, any>
+  installment: {
+    interest: boolean
+    count: number
+    value: number
+    valueText: string
+  }
   name: string
-  boost: Record<string, any>
+  boost: {
+    newness: number
+    image: number
+    revenue: number
+    discount: number
+    click: number
+    availableSpecsCount: number
+    promotion: number
+    order: number
+  }
   specificationGroups: string
   extraInfo: Record<string, any>
   oldPriceText: string

@@ -1,6 +1,46 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 interface Specification {
   Name: string
+  Values: Array<{
+    Id: string
+    Position: number
+    Value: string
+  }>
+  Position: number
+  IsOnProductDetails: boolean
+  FieldId: string
+}
+
+interface CatalogApiSeller {
+  sellerId: string
+  sellerName: string
+  addToCartLink: string
+  sellerDefault: boolean
+  commertialOffer: {
+    DeliverySlaSamplesPerRegion: Record<string, any>
+    Installments: Array<Record<string, any>>
+    DiscountHighLight: Array<Record<string, any>>
+    GiftSkuIds: Array<Record<string, any>>
+    Teasers: Array<Record<string, any>>
+    BuyTogether: Array<Record<string, any>>
+    ItemMetadataAttachment: Array<Record<string, any>>
+    Price: number
+    ListPrice: number
+    PriceWithoutDiscount: number
+    RewardValue: number
+    PriceValidUntil: string
+    AvailableQuantity: number
+    Tax: number
+    DeliverySlaSamples: [
+      {
+        DeliverySlaPerTypes: Record<string, any>
+        Region: string | null
+      }
+    ]
+    GetInfoErrorMessage: string | null
+    CacheVersionUsedToCallCheckout: string
+    PaymentOptions: Record<string, any>
+  }
 }
 
 interface CatalogApiSku {
@@ -21,7 +61,7 @@ interface CatalogApiSku {
     imageText: string
     imageLastModified: string
   }>
-  sellers: Array<Record<string, any>>
+  sellers: CatalogApiSeller[]
   Videos: []
   estimatedDateArrival: null
 }
@@ -38,9 +78,9 @@ export interface CatalogApiProduct {
   productTitle: string
   metaTagDescription: string
   releaseDate: string
-  clusterHighlights: Record<string, any>
-  productClusters: Record<string, any>
-  searchableClusters: Record<string, any>
+  clusterHighlights: Record<string, string>
+  productClusters: Record<string, string>
+  searchableClusters: Record<string, string>
   categories: string[]
   categoriesIds: string[]
   link: string
