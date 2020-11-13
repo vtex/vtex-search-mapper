@@ -14,13 +14,17 @@
     "build": "cross-env NODE_ENV=production rollup -c",
     "watch": "cross-env NODE_ENV=production rollup -cw",
     "prepublishOnly": "npm run build",
-    "postreleasy": "npm publish --access public",
+    "postreleasy": "npm publish",
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "lint-fix": "eslint --ext js,jsx,ts,tsx  --fix --max-warnings 0 .",
     "format": "prettier --write \"**/*.{ts,js,json}\"",
     "release": "releasy --stable",
     "release-minor": "releasy minor --stable",
     "release-major": "releasy major --stable"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "repository": {
     "type": "git",
