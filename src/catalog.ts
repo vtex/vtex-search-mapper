@@ -1,17 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-interface Specification {
-  Name: string
-  Values: Array<{
-    Id: string
-    Position: number
-    Value: string
-  }>
-  Position: number
-  IsOnProductDetails: boolean
-  FieldId: string
+
+interface SkuSpecification {
+  field: {
+    id: number
+    name: string
+    isActive: boolean
+    position: number
+    type: string
+  }
+  values: [
+    {
+      id: string
+      name: string
+      position: number
+    }
+  ]
 }
 
-interface CatalogApiSeller {
+export interface CatalogApiSeller {
   sellerId: string
   sellerName: string
   addToCartLink: string
@@ -43,7 +49,7 @@ interface CatalogApiSeller {
   }
 }
 
-interface CatalogApiSku {
+export interface CatalogApiSku {
   itemId: string
   name: string
   nameComplete: string
@@ -84,7 +90,9 @@ export interface CatalogApiProduct {
   categories: string[]
   categoriesIds: string[]
   link: string
-  completeSpecifications: Specification[]
+  allSpecifications: string[]
+  allSpecificationsGroups: string[]
+  skuSpecifications: SkuSpecification[]
   description: string
   items: CatalogApiSku[]
 }

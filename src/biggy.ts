@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-interface BiggySkuSeller {
+export interface BiggySkuSeller {
   oldPrice?: number
   price?: number
   name: string
@@ -9,12 +9,12 @@ interface BiggySkuSeller {
   stock?: number
 }
 
-interface BiggySkuPolicy {
+export interface BiggySkuPolicy {
   id: string
   sellers: BiggySkuSeller[]
 }
 
-interface BiggySearchSku {
+export interface BiggySearchSku {
   id: string
   idWithSplit: string
   reference: string
