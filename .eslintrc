@@ -1,1 +1,7 @@
-{ "extends": "vtex", "plugins": ["vtex"] }
+{
+  "extends": ["vtex", "plugin:jest/recommended"],
+  "plugins": ["vtex", "jest"],
+  "env": {
+    "jest/globals": true
+  }
+}
