@@ -5,6 +5,7 @@ import {
   BiggySkuSeller,
   BiggySearchInstallment,
   BiggySkuAttribute,
+  BiggyProductTextAttribute,
 } from './biggy'
 import {
   CatalogApiProduct,
@@ -216,11 +217,60 @@ function convertFromBiggyProductToCatalogApiItems(
   )
 }
 
+type CatalogProductSpecificationsBase = {
+  allSpecificationsGroups: string[]
+}
+type CatalogProductSpecifications = CatalogProductSpecificationsBase &
+  Record<string, string[]>
+
+function convertFromBiggySpecificationsToCatalogApiSpecifications(
+  specificationGroups: string,
+  textAttributes: BiggyProductTextAttribute[]
+): CatalogProductSpecifications {
+  // "specificationGroups": "{\"Especificações2\":[\"Ocasião\",\"Mundo\",\"Destaque\",\"Pirâmide\",\"Tendência\"],\"Especificações\":[\"Modelagem\",\"Marca\",\"Cor\",\"Material\"]}",
+
+  const parsedSpecifications = JSON.parse(specificationGroups)
+  const allSpecificationsGroups = Object.keys(parsedSpecifications)
+  const result: CatalogProductSpecifications = {
+    ...parsedSpecifications,
+    allSpecificationsGroups,
+  }
+
+  const productSpecifications: string[] = []
+  const specificationKeyMap: Record<string, boolean> = {}
+
+  allSpecificationsGroups.forEach((specificationsGroup: string) => {
+    parsedSpecifications[specificationsGroup].forEach(
+      (specificationKey: string) => {
+        specificationKeyMap[specificationKey] = true
+        productSpecifications.push(specificationKey)
+      }
+    )
+  })
+
+  textAttributes.forEach((textAttribute) => {
+    if (textAttribute.labelKey && specificationKeyMap[textAttribute.labelKey]) {
+      if (result[textAttribute.labelKey]) {
+        result[textAttribute.labelKey].push(textAttribute.labelValue)
+      } else {
+        result[textAttribute.labelKey] = [textAttribute.labelValue]
+      }
+    }
+  })
+
+  return result
+}
+
 export function convertFromBiggyProductToCatalogApiProduct(
   product: BiggySearchProduct,
   extraInfo: ExtraBiggyToCatalogInfo
 ): CatalogApiProduct {
   const { domain = '' } = extraInfo
+
+  const catalogProductSpecifications = convertFromBiggySpecificationsToCatalogApiSpecifications(
+    product.specificationGroups,
+    product.textAttributes
+  ) as CatalogProductSpecificationsBase
 
   return {
     productId: product.id,
@@ -236,30 +286,15 @@ export function convertFromBiggyProductToCatalogApiProduct(
     metaTagDescription: product.description,
     releaseDate: getDateStringFromTimestamp(product.release),
     clusterHighlights: product.clusterHighlights,
+    link: `${domain}${product.url}`,
+    allSpecifications: product.productSpecifications,
+    searchableClusters: {}, // TODO: Biggy still don't have this
+    skuSpecifications: [], // TODO: Biggy still don't have this
     productClusters: {}, // productclusternames em textAttributes
-    searchableClusters: {},
     categories: [], // category-1 e category-2 em textAttributes e ir acumulando: ['/Moda Masculina/Camisas/', '/Moda Masculina/']
     categoriesIds: [], // usar categoryIds e ir acumulando: ['/1000083/1000093/', '/1000083/']
-    link: `${domain}${product.url}`,
 
-    // from: ...JSON.parse(specificationGroups)
-    // Especificações: ['Modelagem', 'Marca', 'Cor', 'Material'],
-    // Especificações2: ['Ocasião', 'Mundo', 'Destaque', 'Pirâmide', 'Tendência'],
-
-    // Pegar as keys em product.productSpecifications e depois ir em textAttributes filtrando por labelKey e pegando o labelValue
-    // Modelagem: ['Manga Longa', 'Comfort'],
-    // Marca: ['Angelo Lítrico'],
-    // Cor: ['Azul'],
-    // Material: ['Algodao', 'Poliéster'],
-    // Ocasião: ['Trabalho'],
-    // Mundo: ['Business'],
-    // Destaque: ['Padrao'],
-    // Pirâmide: ['A'],
-    // Tendência: ['Bolso'],
-
-    allSpecifications: product.productSpecifications,
-    allSpecificationsGroups: [], // JSON.parse(specificationGroups) keys
-    skuSpecifications: [],
+    ...catalogProductSpecifications,
 
     items: convertFromBiggyProductToCatalogApiItems(product, extraInfo),
   }

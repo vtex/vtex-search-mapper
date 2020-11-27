@@ -42,6 +42,15 @@ export interface BiggySearchSku {
   installment?: BiggySearchInstallment
 }
 
+export interface BiggyProductTextAttribute {
+  valueId: string
+  isFilter: boolean
+  labelValue: string
+  labelKey: string
+  value: string
+  key: string
+}
+
 export interface BiggySearchProduct {
   skus: BiggySearchSku[]
   unitMultiplier: number
@@ -78,14 +87,7 @@ export interface BiggySearchProduct {
   measurementUnit: string
   storeSplitAttribute: string
   categoryIds: string[]
-  textAttributes: Array<{
-    valueId: string
-    isFilter: boolean
-    labelValue: string
-    labelKey: string
-    value: string
-    key: string
-  }>
+  textAttributes: BiggyProductTextAttribute[]
   brandId: string
   installment: BiggySearchInstallment
   name: string
