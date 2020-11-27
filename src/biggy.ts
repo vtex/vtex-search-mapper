@@ -52,7 +52,7 @@ export interface BiggySearchProduct {
     categoryNames: string[]
     categoryIds: string[]
   }>
-  images: Array<{ value: string }>
+  images: Array<{ name: string; value: string }>
   product: string
   oldPrice: number
   locationAttributes: Array<Record<string, any>>

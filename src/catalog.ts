@@ -54,6 +54,7 @@ export interface CatalogApiSku {
   name: string
   nameComplete: string
   complementName: string
+  referenceId: Array<{ Key: string; Value: string }>
   ean: string
   measurementUnit: string
   unitMultiplier: number
@@ -68,7 +69,7 @@ export interface CatalogApiSku {
     imageLastModified: string
   }>
   sellers: CatalogApiSeller[]
-  Videos: []
+  Videos: string[]
   estimatedDateArrival: null
 }
 
