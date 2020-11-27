@@ -17,6 +17,16 @@ interface SkuSpecification {
   ]
 }
 
+export interface CatalogApiInstallment {
+  Value: number
+  InterestRate: number
+  TotalValuePlusInterestRate: number
+  NumberOfInstallments: number
+  PaymentSystemName: string
+  PaymentSystemGroupName: string
+  Name: string
+}
+
 export interface CatalogApiSeller {
   sellerId: string
   sellerName: string
@@ -24,27 +34,25 @@ export interface CatalogApiSeller {
   sellerDefault: boolean
   commertialOffer: {
     DeliverySlaSamplesPerRegion: Record<string, any>
-    Installments: Array<Record<string, any>>
+    Installments: CatalogApiInstallment[]
     DiscountHighLight: Array<Record<string, any>>
     GiftSkuIds: Array<Record<string, any>>
     Teasers: Array<Record<string, any>>
     BuyTogether: Array<Record<string, any>>
     ItemMetadataAttachment: Array<Record<string, any>>
-    Price: number
-    ListPrice: number
-    PriceWithoutDiscount: number
+    Price: number | null
+    ListPrice: number | null
+    PriceWithoutDiscount: number | null
     RewardValue: number
-    PriceValidUntil: string
+    PriceValidUntil: string | null
     AvailableQuantity: number
     Tax: number
-    DeliverySlaSamples: [
-      {
-        DeliverySlaPerTypes: Record<string, any>
-        Region: string | null
-      }
-    ]
+    DeliverySlaSamples: Array<{
+      DeliverySlaPerTypes: Record<string, any>
+      Region: string | null
+    }>
     GetInfoErrorMessage: string | null
-    CacheVersionUsedToCallCheckout: string
+    CacheVersionUsedToCallCheckout?: string
     PaymentOptions: Record<string, any>
   }
 }

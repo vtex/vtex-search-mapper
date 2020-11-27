@@ -34,3 +34,22 @@ export function getDateStringFromTimestamp(epochTimestamp: number): string {
 
   return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`
 }
+
+export function mergeProps<T, T2, K extends keyof T & keyof T2>(
+  props1: T,
+  props2: T2,
+  { keys, defaultValue }: { keys: string[]; defaultValue: unknown }
+): Pick<T, K> {
+  const finalProps: Record<string, unknown> = {}
+
+  keys.forEach((key) => {
+    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+    finalProps[key] = props1[key as K] || props2[key as K] || defaultValue
+  })
+
+  return finalProps as Pick<T, K>
+}
+
+export function isNil(value: unknown) {
+  return value == null
+}

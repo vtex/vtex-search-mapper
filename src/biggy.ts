@@ -1,8 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+export interface BiggySearchInstallment {
+  interest: boolean
+  count: number
+  value: number
+  valueText: string
+}
+
 export interface BiggySkuSeller {
   oldPrice?: number
   price?: number
+  discount?: number
   name: string
   tax: number
   id: string
@@ -24,6 +32,12 @@ export interface BiggySearchSku {
     key: string
   }>
   sellers: BiggySkuSeller[]
+  oldPrice?: number
+  price?: number
+  discount?: number
+  stock?: number
+  tax?: number
+  installment?: BiggySearchInstallment
 }
 
 export interface BiggySearchProduct {
@@ -71,12 +85,7 @@ export interface BiggySearchProduct {
     key: string
   }>
   brandId: string
-  installment: {
-    interest: boolean
-    count: number
-    value: number
-    valueText: string
-  }
+  installment: BiggySearchInstallment
   name: string
   boost: {
     newness: number
