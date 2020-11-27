@@ -22,15 +22,17 @@ export interface BiggySkuPolicy {
   sellers: BiggySkuSeller[]
 }
 
+export interface BiggySkuAttribute {
+  value: string
+  key: string
+}
+
 export interface BiggySearchSku {
   id: string
   idWithSplit: string
   reference: string
   policies: BiggySkuPolicy[]
-  attributes: Array<{
-    value: string
-    key: string
-  }>
+  attributes: BiggySkuAttribute[]
   sellers: BiggySkuSeller[]
   oldPrice?: number
   price?: number

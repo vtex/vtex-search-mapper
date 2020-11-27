@@ -76,6 +76,7 @@ export interface CatalogApiSku {
     imageText: string
     imageLastModified: string
   }>
+  variations: string[]
   sellers: CatalogApiSeller[]
   Videos: string[]
   estimatedDateArrival: null

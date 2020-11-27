@@ -4,6 +4,7 @@ import {
   BiggySearchSku,
   BiggySkuSeller,
   BiggySearchInstallment,
+  BiggySkuAttribute,
 } from './biggy'
 import {
   CatalogApiProduct,
@@ -148,6 +149,21 @@ function convertFromBiggyProductImagesToCatalogApiImages(
   }))
 }
 
+type CatalogSkuVariations = { variations: string[] } & Record<string, string[]>
+
+function convertFromBiggySkuAttributesToVariations(
+  attributes: BiggySkuAttribute[]
+): CatalogSkuVariations {
+  const result: CatalogSkuVariations = { variations: [] }
+
+  attributes.forEach((attribute) => {
+    result.variations.push(attribute.key)
+    result[attribute.key] = [attribute.value]
+  })
+
+  return result
+}
+
 function convertFromBiggySkuAndProductToCatalogApiItem(
   rawSku: BiggySearchSku,
   product: BiggySearchProduct,
@@ -166,6 +182,10 @@ function convertFromBiggySkuAndProductToCatalogApiItem(
     installment: rawSku?.installment ?? product.installment,
   }
 
+  const skuVariations = convertFromBiggySkuAttributesToVariations(
+    sku.attributes
+  ) as { variations: string[] } // fooling typescript to don't throw error
+
   return {
     itemId: sku.id,
     name: '', // TODO: Biggy still don't have this
@@ -179,15 +199,9 @@ function convertFromBiggySkuAndProductToCatalogApiItem(
     isKit: false,
     Videos: [], // Todo: Biggy still don't have this
     estimatedDateArrival: null, // TODO: Biggy still don't have this}
-
     images: convertFromBiggyProductImagesToCatalogApiImages(product), // TODO: Biggy still don't have this (using from product for now)
-
-    // Pegar dados em sku.attributes
-    // Cor: ['Azul'],
-    // Tamanho: ['1'],
-    // variations: ['Cor', 'Tamanho'],
-
     sellers: convertFromBiggySkuToCatalogApiSellers(sku, extraInfo),
+    ...skuVariations,
   }
 }
 
