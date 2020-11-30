@@ -108,11 +108,16 @@ function convertFromBiggySkuToCatalogApiSellers(
   sku: BiggySearchSku,
   extraInfo: ExtraBiggyToCatalogInfo
 ): CatalogApiSeller[] {
-  const { sellers } = sku
+  const { sellers, policies } = sku
+  const { sc } = extraInfo
 
   let defaultSellerIndex = 0
 
-  const newSellers = sellers.map((rawSeller, index) => {
+  const currentPolicy = policies.find((policy) => policy.id === sc)
+  const currentPolicySellers = currentPolicy ? currentPolicy.sellers : []
+  const skuSellers = sellers.length > 0 ? sellers : currentPolicySellers
+
+  const newSellers = skuSellers.map((rawSeller, index) => {
     const seller: BiggySkuSeller = {
       ...rawSeller,
       ...mergeProps<BiggySkuSeller, BiggySearchSku, PriceKey>(rawSeller, sku, {
@@ -132,7 +137,9 @@ function convertFromBiggySkuToCatalogApiSellers(
     )
   })
 
-  newSellers[defaultSellerIndex].sellerDefault = true
+  if (newSellers[defaultSellerIndex]) {
+    newSellers[defaultSellerIndex].sellerDefault = true
+  }
 
   return newSellers
 }
