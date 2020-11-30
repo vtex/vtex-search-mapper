@@ -8,13 +8,11 @@ interface SkuSpecification {
     position: number
     type: string
   }
-  values: [
-    {
-      id: string
-      name: string
-      position: number
-    }
-  ]
+  values: Array<{
+    id: string
+    name: string
+    position: number
+  }>
 }
 
 export interface CatalogApiInstallment {
@@ -53,7 +51,7 @@ export interface CatalogApiSeller {
     }>
     GetInfoErrorMessage: string | null
     CacheVersionUsedToCallCheckout?: string
-    PaymentOptions: Record<string, any>
+    PaymentOptions: Record<string, any> | null
   }
 }
 
@@ -70,8 +68,8 @@ export interface CatalogApiSku {
   isKit: boolean
   images: Array<{
     imageId: string
-    imageLabel: string
-    imageTag: string
+    imageLabel: string | null
+    imageTag: string | null
     imageUrl: string
     imageText: string
     imageLastModified: string

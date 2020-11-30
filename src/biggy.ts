@@ -40,10 +40,13 @@ export interface BiggySearchSku {
   stock?: number
   tax?: number
   installment?: BiggySearchInstallment
+  oldPriceText?: string
+  priceText?: string
 }
 
 export interface BiggyProductTextAttribute {
-  valueId: string
+  valueId?: string
+  id?: string
   isFilter: boolean
   labelValue: string
   labelKey: string
@@ -56,12 +59,16 @@ export interface BiggySearchProduct {
   unitMultiplier: number
   year: number
   extraData: Array<Record<string, any>>
+  collections: Array<{
+    id: string
+    position: number
+  }>
   release: number
   link: string
   wear: number
   discount: number
   description: string
-  reference: string
+  reference?: string
   showIfNotAvailable: boolean
   price: number
   customSort: number
@@ -77,7 +84,7 @@ export interface BiggySearchProduct {
     categoryNames: string[]
     categoryIds: string[]
   }>
-  images: Array<{ name: string; value: string }>
+  images: Array<{ name?: string; value: string }>
   product: string
   oldPrice: number
   locationAttributes: Array<Record<string, any>>

@@ -142,10 +142,10 @@ function convertFromBiggyProductImagesToCatalogApiImages(
 ) {
   return product.images.map((img) => ({
     imageId: '', // TODO: Biggy still don't have this
-    imageLabel: img.name,
+    imageLabel: img.name ?? '',
     imageTag: '', // TODO: Biggy still don't have this
     imageUrl: img.value,
-    imageText: img.name,
+    imageText: img.name ?? '',
     imageLastModified: '', // TODO: Biggy still don't have this
   }))
 }
@@ -284,8 +284,13 @@ function convertFromBiggyTextAttributesToCatalogClustersAndCategories(
   const biggyCategories: string[] = []
 
   textAttributes.forEach((textAttribute) => {
-    if (textAttribute.key === 'productclusternames') {
-      productClusters[textAttribute.valueId] = textAttribute.labelValue
+    if (
+      textAttribute.key === 'productclusternames' &&
+      (textAttribute.valueId || textAttribute.id)
+    ) {
+      const valueId = textAttribute.valueId ?? textAttribute.id ?? ''
+
+      productClusters[valueId] = textAttribute.labelValue
     } else if (textAttribute.key.startsWith('category-')) {
       biggyCategories.push(textAttribute.labelValue)
     }
@@ -325,7 +330,7 @@ export function convertFromBiggyProductToCatalogApiProduct(
     brandId: parseInt(product.brandId, 10),
     brandImageUrl: null, // TODO: Biggy still don't have this
     linkText: product.link,
-    productReference: product.reference,
+    productReference: product.reference ?? product.skus[0].reference,
     categoryId: last(product.categoryIds, ''),
     productTitle: product.name,
     description: product.description,
