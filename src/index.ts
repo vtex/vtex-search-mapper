@@ -149,7 +149,7 @@ function convertFromBiggyProductImagesToCatalogApiImages(
 ) {
   return product.images.map((img) => ({
     imageId: '', // TODO: Biggy still don't have this
-    imageLabel: img.name ?? '',
+    imageLabel: img.name ?? null,
     imageTag: '', // TODO: Biggy still don't have this
     imageUrl: img.value,
     imageText: img.name ?? '',
@@ -239,7 +239,7 @@ function convertFromBiggySpecificationsToCatalogApiSpecifications(
   textAttributes: BiggyProductTextAttribute[]
 ): CatalogProductSpecifications {
   const parsedSpecifications = JSON.parse(specificationGroups)
-  const allSpecificationsGroups = Object.keys(parsedSpecifications)
+  const allSpecificationsGroups = Object.keys(parsedSpecifications).reverse()
   const result: CatalogProductSpecifications = {
     ...parsedSpecifications,
     allSpecificationsGroups,
@@ -247,23 +247,40 @@ function convertFromBiggySpecificationsToCatalogApiSpecifications(
 
   const productSpecifications: string[] = []
   const specificationKeyMap: Record<string, boolean> = {}
+  const specificationKeyValueMap: Record<string, Record<string, boolean>> = {}
 
   allSpecificationsGroups.forEach((specificationsGroup: string) => {
     parsedSpecifications[specificationsGroup].forEach(
       (specificationKey: string) => {
         specificationKeyMap[specificationKey] = true
+        specificationKeyValueMap[specificationKey] = {}
         productSpecifications.push(specificationKey)
       }
     )
   })
 
   textAttributes.forEach((textAttribute) => {
-    if (textAttribute.labelKey && specificationKeyMap[textAttribute.labelKey]) {
-      if (result[textAttribute.labelKey]) {
-        result[textAttribute.labelKey].push(textAttribute.labelValue)
-      } else {
-        result[textAttribute.labelKey] = [textAttribute.labelValue]
-      }
+    if (
+      !textAttribute.labelKey ||
+      !specificationKeyMap[textAttribute.labelKey]
+    ) {
+      return
+    }
+
+    if (
+      specificationKeyValueMap[textAttribute.labelKey][textAttribute.labelValue]
+    ) {
+      return
+    }
+
+    specificationKeyValueMap[textAttribute.labelKey][
+      textAttribute.labelValue
+    ] = true
+
+    if (result[textAttribute.labelKey]) {
+      result[textAttribute.labelKey].push(textAttribute.labelValue)
+    } else {
+      result[textAttribute.labelKey] = [textAttribute.labelValue]
     }
   })
 
