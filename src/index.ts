@@ -183,9 +183,12 @@ function convertFromBiggySkuAndProductToCatalogApiItem(
     installment: rawSku?.installment ?? product.installment,
   }
 
-  const skuVariations = convertFromBiggySkuAttributesToVariations(
-    sku.attributes
-  ) as { variations: string[] } // fooling typescript to don't throw error
+  const {
+    variations,
+    ...catalogSkuVariations
+  } = convertFromBiggySkuAttributesToVariations(sku.attributes) as {
+    variations: string[]
+  } // fooling typescript so it doesn't throw error
 
   return {
     itemId: sku.id,
@@ -202,7 +205,8 @@ function convertFromBiggySkuAndProductToCatalogApiItem(
     estimatedDateArrival: null, // TODO: Biggy still don't have this}
     images: convertFromBiggyProductImagesToCatalogApiImages(product), // TODO: Biggy still don't have this (using from product for now)
     sellers: convertFromBiggySkuToCatalogApiSellers(sku, extraInfo),
-    ...skuVariations,
+    variations,
+    ...catalogSkuVariations,
   }
 }
 
@@ -227,8 +231,6 @@ function convertFromBiggySpecificationsToCatalogApiSpecifications(
   specificationGroups: string,
   textAttributes: BiggyProductTextAttribute[]
 ): CatalogProductSpecifications {
-  // "specificationGroups": "{\"Especificações2\":[\"Ocasião\",\"Mundo\",\"Destaque\",\"Pirâmide\",\"Tendência\"],\"Especificações\":[\"Modelagem\",\"Marca\",\"Cor\",\"Material\"]}",
-
   const parsedSpecifications = JSON.parse(specificationGroups)
   const allSpecificationsGroups = Object.keys(parsedSpecifications)
   const result: CatalogProductSpecifications = {
@@ -261,16 +263,60 @@ function convertFromBiggySpecificationsToCatalogApiSpecifications(
   return result
 }
 
+function convertFromBiggyCategoriesToCatalogCategories(
+  biggyCategories: string[]
+): string[] {
+  const categoryList: string[] = []
+  const newCategories: string[] = []
+
+  biggyCategories.forEach((category) => {
+    categoryList.push(category)
+    newCategories.push(`/${categoryList.join('/')}/`)
+  })
+
+  return newCategories.reverse()
+}
+
+function convertFromBiggyTextAttributesToCatalogClustersAndCategories(
+  textAttributes: BiggyProductTextAttribute[]
+) {
+  const productClusters: Record<string, string> = {}
+  const biggyCategories: string[] = []
+
+  textAttributes.forEach((textAttribute) => {
+    if (textAttribute.key === 'productclusternames') {
+      productClusters[textAttribute.valueId] = textAttribute.labelValue
+    } else if (textAttribute.key.startsWith('category-')) {
+      biggyCategories.push(textAttribute.labelValue)
+    }
+  })
+
+  return {
+    productClusters,
+    categories: convertFromBiggyCategoriesToCatalogCategories(biggyCategories),
+  }
+}
+
 export function convertFromBiggyProductToCatalogApiProduct(
   product: BiggySearchProduct,
   extraInfo: ExtraBiggyToCatalogInfo
 ): CatalogApiProduct {
   const { domain = '' } = extraInfo
 
-  const catalogProductSpecifications = convertFromBiggySpecificationsToCatalogApiSpecifications(
+  const {
+    allSpecificationsGroups,
+    ...catalogProductSpecifications
+  } = convertFromBiggySpecificationsToCatalogApiSpecifications(
     product.specificationGroups,
     product.textAttributes
-  ) as CatalogProductSpecificationsBase
+  ) as CatalogProductSpecificationsBase // fooling typescript so it doesn't throw error
+
+  const {
+    productClusters,
+    categories,
+  } = convertFromBiggyTextAttributesToCatalogClustersAndCategories(
+    product.textAttributes
+  )
 
   return {
     productId: product.id,
@@ -290,13 +336,14 @@ export function convertFromBiggyProductToCatalogApiProduct(
     allSpecifications: product.productSpecifications,
     searchableClusters: {}, // TODO: Biggy still don't have this
     skuSpecifications: [], // TODO: Biggy still don't have this
-    productClusters: {}, // productclusternames em textAttributes
-    categories: [], // category-1 e category-2 em textAttributes e ir acumulando: ['/Moda Masculina/Camisas/', '/Moda Masculina/']
-    categoriesIds: [], // usar categoryIds e ir acumulando: ['/1000083/1000093/', '/1000083/']
-
-    ...catalogProductSpecifications,
-
+    categoriesIds: convertFromBiggyCategoriesToCatalogCategories(
+      product.categoryIds
+    ),
     items: convertFromBiggyProductToCatalogApiItems(product, extraInfo),
+    productClusters,
+    categories,
+    allSpecificationsGroups,
+    ...catalogProductSpecifications,
   }
 }
 
