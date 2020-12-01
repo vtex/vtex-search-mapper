@@ -1,6 +1,6 @@
 {
   "name": "@vtex/vtex-search-mapper",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Be a utility library to translate form VTEX Search results to VTEX Catalog json format",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
