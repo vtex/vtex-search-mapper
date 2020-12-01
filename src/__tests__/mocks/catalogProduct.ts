@@ -235,12 +235,8 @@ export const catalogExternalSellerProduct: CatalogApiProduct = {
             'https://cea.myvtex.com/checkout/cart/add?sku=3288692&qty=1&seller=gouveiacosta&sc=1&price=11240&cv=c3d5cd02760f7b0ba9d4e29a48261c40_&sc=1',
           sellerDefault: true,
           commertialOffer: {
-            DeliverySlaSamplesPerRegion: {
-              '0': {
-                DeliverySlaPerTypes: [],
-                Region: null,
-              },
-            },
+            DeliverySlaSamplesPerRegion: {}, // TODO: Biggy still don't have this
+            DeliverySlaSamples: [], // TODO: Biggy still don't have this
             Installments: [
               {
                 Value: 112.4,
@@ -597,12 +593,7 @@ export const catalogExternalSellerProduct: CatalogApiProduct = {
             PriceValidUntil: '2025-11-29T14:33:26',
             AvailableQuantity: 997,
             Tax: 0,
-            DeliverySlaSamples: [
-              {
-                DeliverySlaPerTypes: [],
-                Region: null,
-              },
-            ],
+
             GetInfoErrorMessage: null,
             CacheVersionUsedToCallCheckout: 'c3d5cd02760f7b0ba9d4e29a48261c40_',
             PaymentOptions: null,
@@ -973,357 +964,64 @@ export const catalogSeller1Product: CatalogApiProduct = {
           sellerId: '1',
           sellerName: 'CeA',
           addToCartLink:
-            'https://cea.myvtex.com/checkout/cart/add?sku=2018619&qty=1&seller=1&sc=1&price=6999&cv=738ceac6b96b3f79ee3a4faf3c1d9070_&sc=1',
+            'https://cea.myvtex.com/checkout/cart/add?sku=2018619&qty=1&seller=1&sc=1&price=6999',
           sellerDefault: true,
           commertialOffer: {
-            DeliverySlaSamplesPerRegion: {
-              '0': {
-                DeliverySlaPerTypes: [],
-                Region: null,
-              },
-            },
+            DeliverySlaSamplesPerRegion: {}, // TODO: Biggy still don't have this
             Installments: [
               {
                 Value: 69.99,
                 InterestRate: 0,
                 TotalValuePlusInterestRate: 69.99,
                 NumberOfInstallments: 1,
-                PaymentSystemName: 'Visa',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Visa à vista',
+                PaymentSystemName: '', // TODO: Biggy still don't have this
+                PaymentSystemGroupName: '', // TODO: Biggy still don't have this
+                Name: '', // TODO: Biggy still don't have this
               },
               {
                 Value: 34.99,
                 InterestRate: 0,
                 TotalValuePlusInterestRate: 69.99,
                 NumberOfInstallments: 2,
-                PaymentSystemName: 'Visa',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Visa 2 vezes sem juros',
+                PaymentSystemName: '', // TODO: Biggy still don't have this
+                PaymentSystemGroupName: '', // TODO: Biggy still don't have this
+                Name: '', // TODO: Biggy still don't have this
               },
               {
                 Value: 23.33,
                 InterestRate: 0,
                 TotalValuePlusInterestRate: 69.99,
                 NumberOfInstallments: 3,
-                PaymentSystemName: 'Visa',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Visa 3 vezes sem juros',
+                PaymentSystemName: '', // TODO: Biggy still don't have this
+                PaymentSystemGroupName: '', // TODO: Biggy still don't have this
+                Name: '', // TODO: Biggy still don't have this
               },
               {
                 Value: 17.49,
                 InterestRate: 0,
                 TotalValuePlusInterestRate: 69.99,
                 NumberOfInstallments: 4,
-                PaymentSystemName: 'Visa',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Visa 4 vezes sem juros',
+                PaymentSystemName: '', // TODO: Biggy still don't have this
+                PaymentSystemGroupName: '', // TODO: Biggy still don't have this
+                Name: '', // TODO: Biggy still don't have this
               },
               {
                 Value: 13.99,
                 InterestRate: 0,
                 TotalValuePlusInterestRate: 69.99,
                 NumberOfInstallments: 5,
-                PaymentSystemName: 'Visa',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Visa 5 vezes sem juros',
+                PaymentSystemName: '', // TODO: Biggy still don't have this
+                PaymentSystemGroupName: '', // TODO: Biggy still don't have this
+                Name: '', // TODO: Biggy still don't have this
               },
               {
                 Value: 11.66,
                 InterestRate: 0,
                 TotalValuePlusInterestRate: 69.99,
                 NumberOfInstallments: 6,
-                PaymentSystemName: 'Visa',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Visa 6 vezes sem juros',
-              },
-              {
-                Value: 69.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 1,
-                PaymentSystemName: 'Mastercard',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Mastercard à vista',
-              },
-              {
-                Value: 34.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 2,
-                PaymentSystemName: 'Mastercard',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Mastercard 2 vezes sem juros',
-              },
-              {
-                Value: 23.33,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 3,
-                PaymentSystemName: 'Mastercard',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Mastercard 3 vezes sem juros',
-              },
-              {
-                Value: 17.49,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 4,
-                PaymentSystemName: 'Mastercard',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Mastercard 4 vezes sem juros',
-              },
-              {
-                Value: 13.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 5,
-                PaymentSystemName: 'Mastercard',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Mastercard 5 vezes sem juros',
-              },
-              {
-                Value: 11.66,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 6,
-                PaymentSystemName: 'Mastercard',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Mastercard 6 vezes sem juros',
-              },
-              {
-                Value: 69.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 1,
-                PaymentSystemName: 'Boleto Bancário',
-                PaymentSystemGroupName: 'bankInvoicePaymentGroup',
-                Name: 'Boleto Bancário à vista',
-              },
-              {
-                Value: 69.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 1,
-                PaymentSystemName: 'Hipercard',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Hipercard à vista',
-              },
-              {
-                Value: 34.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 2,
-                PaymentSystemName: 'Hipercard',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Hipercard 2 vezes sem juros',
-              },
-              {
-                Value: 23.33,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 3,
-                PaymentSystemName: 'Hipercard',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Hipercard 3 vezes sem juros',
-              },
-              {
-                Value: 17.49,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 4,
-                PaymentSystemName: 'Hipercard',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Hipercard 4 vezes sem juros',
-              },
-              {
-                Value: 13.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 5,
-                PaymentSystemName: 'Hipercard',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Hipercard 5 vezes sem juros',
-              },
-              {
-                Value: 11.66,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 6,
-                PaymentSystemName: 'Hipercard',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Hipercard 6 vezes sem juros',
-              },
-              {
-                Value: 69.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 1,
-                PaymentSystemName: 'Elo',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Elo à vista',
-              },
-              {
-                Value: 34.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 2,
-                PaymentSystemName: 'Elo',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Elo 2 vezes sem juros',
-              },
-              {
-                Value: 23.33,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 3,
-                PaymentSystemName: 'Elo',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Elo 3 vezes sem juros',
-              },
-              {
-                Value: 17.49,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 4,
-                PaymentSystemName: 'Elo',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Elo 4 vezes sem juros',
-              },
-              {
-                Value: 13.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 5,
-                PaymentSystemName: 'Elo',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Elo 5 vezes sem juros',
-              },
-              {
-                Value: 11.66,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 6,
-                PaymentSystemName: 'Elo',
-                PaymentSystemGroupName: 'creditCardPaymentGroup',
-                Name: 'Elo 6 vezes sem juros',
-              },
-              {
-                Value: 69.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 1,
-                PaymentSystemName: 'Vale',
-                PaymentSystemGroupName: 'giftCardPaymentGroup',
-                Name: 'Vale à vista',
-              },
-              {
-                Value: 69.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 1,
-                PaymentSystemName: 'Venda Direta Credito',
-                PaymentSystemGroupName: 'creditDirectSalePaymentGroup',
-                Name: 'Venda Direta Credito à vista',
-              },
-              {
-                Value: 34.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 2,
-                PaymentSystemName: 'Venda Direta Credito',
-                PaymentSystemGroupName: 'creditDirectSalePaymentGroup',
-                Name: 'Venda Direta Credito 2 vezes sem juros',
-              },
-              {
-                Value: 23.33,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 3,
-                PaymentSystemName: 'Venda Direta Credito',
-                PaymentSystemGroupName: 'creditDirectSalePaymentGroup',
-                Name: 'Venda Direta Credito 3 vezes sem juros',
-              },
-              {
-                Value: 17.49,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 4,
-                PaymentSystemName: 'Venda Direta Credito',
-                PaymentSystemGroupName: 'creditDirectSalePaymentGroup',
-                Name: 'Venda Direta Credito 4 vezes sem juros',
-              },
-              {
-                Value: 13.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 5,
-                PaymentSystemName: 'Venda Direta Credito',
-                PaymentSystemGroupName: 'creditDirectSalePaymentGroup',
-                Name: 'Venda Direta Credito 5 vezes sem juros',
-              },
-              {
-                Value: 11.66,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 6,
-                PaymentSystemName: 'Venda Direta Credito',
-                PaymentSystemGroupName: 'creditDirectSalePaymentGroup',
-                Name: 'Venda Direta Credito 6 vezes sem juros',
-              },
-              {
-                Value: 69.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 1,
-                PaymentSystemName: 'Cartão C&A',
-                PaymentSystemGroupName: 'customPrivate_401PaymentGroup',
-                Name: 'Cartão C&A à vista',
-              },
-              {
-                Value: 34.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 2,
-                PaymentSystemName: 'Cartão C&A',
-                PaymentSystemGroupName: 'customPrivate_401PaymentGroup',
-                Name: 'Cartão C&A 2 vezes sem juros',
-              },
-              {
-                Value: 23.33,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 3,
-                PaymentSystemName: 'Cartão C&A',
-                PaymentSystemGroupName: 'customPrivate_401PaymentGroup',
-                Name: 'Cartão C&A 3 vezes sem juros',
-              },
-              {
-                Value: 17.49,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 4,
-                PaymentSystemName: 'Cartão C&A',
-                PaymentSystemGroupName: 'customPrivate_401PaymentGroup',
-                Name: 'Cartão C&A 4 vezes sem juros',
-              },
-              {
-                Value: 13.99,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 5,
-                PaymentSystemName: 'Cartão C&A',
-                PaymentSystemGroupName: 'customPrivate_401PaymentGroup',
-                Name: 'Cartão C&A 5 vezes sem juros',
-              },
-              {
-                Value: 11.66,
-                InterestRate: 0,
-                TotalValuePlusInterestRate: 69.99,
-                NumberOfInstallments: 6,
-                PaymentSystemName: 'Cartão C&A',
-                PaymentSystemGroupName: 'customPrivate_401PaymentGroup',
-                Name: 'Cartão C&A 6 vezes sem juros',
+                PaymentSystemName: '', // TODO: Biggy still don't have this
+                PaymentSystemGroupName: '', // TODO: Biggy still don't have this
+                Name: '', // TODO: Biggy still don't have this
               },
             ],
             DiscountHighLight: [],
@@ -1335,17 +1033,12 @@ export const catalogSeller1Product: CatalogApiProduct = {
             ListPrice: 69.99,
             PriceWithoutDiscount: 69.99,
             RewardValue: 0,
-            PriceValidUntil: '2040-09-24T11:00:00Z',
-            AvailableQuantity: 4,
+            PriceValidUntil: null, // TODO: Biggy still don't have this
+            AvailableQuantity: 1,
             Tax: 0,
-            DeliverySlaSamples: [
-              {
-                DeliverySlaPerTypes: [],
-                Region: null,
-              },
-            ],
+            DeliverySlaSamples: [], // TODO: Biggy still don't have this
             GetInfoErrorMessage: null,
-            CacheVersionUsedToCallCheckout: '738ceac6b96b3f79ee3a4faf3c1d9070_',
+            CacheVersionUsedToCallCheckout: '', // TODO: Biggy still don't have this
             PaymentOptions: null,
           },
         },
@@ -1355,11 +1048,11 @@ export const catalogSeller1Product: CatalogApiProduct = {
     },
     {
       itemId: '2018620',
-      // name: '2',
+      // Name: '', // TODO: Biggy still don't have this
       name: '', // TODO: Biggy still don't have this
       // nameComplete: 'Camisa Comfort Azul Claro 2',
       nameComplete: '', // TODO: Biggy still don't have this
-      complementName: '',
+      complementName: '', // TODO: Biggy still don't have this
       ean: '',
       referenceId: [
         {
@@ -1417,9 +1110,9 @@ export const catalogSeller1Product: CatalogApiProduct = {
       sellers: [
         {
           sellerId: '1',
-          sellerName: 'CeA',
+          sellerName: '', // TODO: Biggy still don't have this
           addToCartLink:
-            'https://cea.myvtex.com/checkout/cart/add?sku=2018620&qty=1&seller=1&sc=1&price=0&cv=738ceac6b96b3f79ee3a4faf3c1d9070_&sc=1',
+            'https://cea.myvtex.com/checkout/cart/add?sku=2018620&qty=1&seller=1&sc=1&price=0',
           sellerDefault: true,
           commertialOffer: {
             DeliverySlaSamplesPerRegion: {},
@@ -1449,7 +1142,7 @@ export const catalogSeller1Product: CatalogApiProduct = {
     },
     {
       itemId: '2018621',
-      // name: '3',
+      // Name: '', // TODO: Biggy still don't have this
       name: '', // TODO: Biggy still don't have this
       // nameComplete: 'Camisa Comfort Azul Claro 3',
       nameComplete: '', // TODO: Biggy still don't have this

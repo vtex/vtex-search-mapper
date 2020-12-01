@@ -13,7 +13,13 @@ import {
   CatalogApiSeller,
   CatalogApiInstallment,
 } from './catalog'
-import { last, getDateStringFromTimestamp, mergeProps, isNil } from './utils'
+import {
+  last,
+  getDateStringFromTimestamp,
+  mergeProps,
+  isNil,
+  castToTwoDecimalFloat,
+} from './utils'
 
 interface ExtraBiggyToCatalogInfo {
   sc: string
@@ -24,6 +30,7 @@ type PriceKey = 'price' | 'oldPrice' | 'discount' | 'stock'
 const PRICE_KEYS: PriceKey[] = ['price', 'oldPrice', 'discount', 'stock']
 
 function convertFromBiggyInstallmentsToCatalogApiInstallments(
+  totalValue: number,
   installment?: BiggySearchInstallment
 ): CatalogApiInstallment[] {
   if (!installment) {
@@ -32,17 +39,15 @@ function convertFromBiggyInstallmentsToCatalogApiInstallments(
 
   const catalogInstallments: CatalogApiInstallment[] = []
 
-  const totalValue = installment.value * installment.count
-
   for (
     let installmentNum = 1;
     installmentNum <= installment.count;
     installmentNum++
   ) {
     catalogInstallments.push({
-      Value: totalValue / installmentNum,
+      Value: castToTwoDecimalFloat(totalValue / installmentNum),
       InterestRate: 0, // TODO: Biggy still don't have this
-      TotalValuePlusInterestRate: totalValue / installmentNum,
+      TotalValuePlusInterestRate: totalValue,
       NumberOfInstallments: installmentNum,
       PaymentSystemName: '', // TODO: Biggy still don't have this
       PaymentSystemGroupName: '', // TODO: Biggy still don't have this
@@ -66,12 +71,15 @@ function convertFromBiggySellerAndSkuToCatalogApiSeller(
       : null,
   }
 
+  const intPrice = Math.round((pricesProps.Price ?? 0) * 100)
+
   return {
     sellerId: seller.id,
     sellerName: seller.name,
-    addToCartLink: `${domain}/checkout/cart/add?sku=${sku.id}&qty=1&seller=${seller.id}&sc=${sc}&price=${pricesProps.Price}`,
-    sellerDefault: true,
+    addToCartLink: `${domain}/checkout/cart/add?sku=${sku.id}&qty=1&seller=${seller.id}&sc=${sc}&price=${intPrice}`,
+    sellerDefault: false,
     commertialOffer: {
+      CacheVersionUsedToCallCheckout: '', // TODO: Biggy still don't have this
       DeliverySlaSamplesPerRegion: {}, // TODO: Biggy still don't have this
       DiscountHighLight: [], // TODO: Biggy still don't have this
       GiftSkuIds: [], // TODO: Biggy still don't have this
@@ -87,17 +95,9 @@ function convertFromBiggySellerAndSkuToCatalogApiSeller(
       PriceWithoutDiscount: pricesProps.PriceWithoutDiscount,
       AvailableQuantity: seller.stock ?? 0,
       Tax: seller.tax,
-      PaymentOptions: {
-        // TODO: Biggy still don't have this
-        installmentOptions: [],
-        paymentSystems: [],
-        payments: [],
-        giftCards: [],
-        giftCardMessages: [],
-        availableAccounts: [],
-        availableTokens: [],
-      },
+      PaymentOptions: null, // TODO: Biggy still don't have this
       Installments: convertFromBiggyInstallmentsToCatalogApiInstallments(
+        pricesProps.Price ?? 0,
         sku?.installment
       ),
     },

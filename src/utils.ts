@@ -53,3 +53,11 @@ export function mergeProps<T, T2, K extends keyof T & keyof T2>(
 export function isNil(value: unknown) {
   return value == null
 }
+
+export function castToTwoDecimalFloat(num: number): number {
+  if (num.toString() === num.toFixed(2)) {
+    return num
+  }
+
+  return parseFloat((Math.floor(num * 100) / 100).toFixed(2))
+}

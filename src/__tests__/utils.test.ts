@@ -1,4 +1,10 @@
-import { getDateStringFromTimestamp, last, mergeProps, isNil } from '../utils'
+import {
+  getDateStringFromTimestamp,
+  last,
+  mergeProps,
+  isNil,
+  castToTwoDecimalFloat,
+} from '../utils'
 
 describe('Utils', () => {
   describe('getDateStringFromTimestamp', () => {
@@ -83,6 +89,23 @@ describe('Utils', () => {
       expect(isNil({ a: 10 })).toBe(false)
       expect(isNil([])).toBe(false)
       expect(isNil(['hello'])).toBe(false)
+    })
+  })
+
+  describe('castToTwoDecimalFloat', () => {
+    it('should return 0 qith 0 received', () => {
+      expect(castToTwoDecimalFloat(0)).toEqual(0)
+    })
+
+    it('should return same value for number with two decimal places already', () => {
+      expect(castToTwoDecimalFloat(11.66)).toEqual(11.66)
+      expect(castToTwoDecimalFloat(69.99)).toEqual(69.99)
+    })
+
+    it('should convert to two decimal places float numbers that arent already', () => {
+      expect(castToTwoDecimalFloat(69.96000000000001)).toEqual(69.96)
+      expect(castToTwoDecimalFloat(11.660000000000002)).toEqual(11.66)
+      expect(castToTwoDecimalFloat(12.111)).toEqual(12.11)
     })
   })
 })
