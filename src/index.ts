@@ -17,7 +17,6 @@ import {
   last,
   getDateStringFromTimestamp,
   mergeProps,
-  isNil,
   uniqById,
   castToTwoDecimalFloat,
 } from './utils'
