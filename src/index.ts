@@ -33,7 +33,7 @@ function convertFromBiggyInstallmentsToCatalogApiInstallments(
   totalValue: number,
   installment?: BiggySearchInstallment
 ): CatalogApiInstallment[] {
-  if (!installment) {
+  if (!totalValue || !installment) {
     return []
   }
 
