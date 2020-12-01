@@ -43,8 +43,7 @@ export function mergeProps<T, T2, K extends keyof T & keyof T2>(
   const finalProps: Record<string, unknown> = {}
 
   keys.forEach((key) => {
-    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-    finalProps[key] = props1[key as K] || props2[key as K] || defaultValue
+    finalProps[key] = props1[key as K] ?? props2[key as K] ?? defaultValue
   })
 
   return finalProps as Pick<T, K>
@@ -52,6 +51,24 @@ export function mergeProps<T, T2, K extends keyof T & keyof T2>(
 
 export function isNil(value: unknown) {
   return value == null
+}
+
+export function uniqById<T extends { id: string }>(values: T[]): T[] {
+  const idsVisited: Record<string, boolean> = {}
+
+  if (!values || values.length === 0) {
+    return []
+  }
+
+  return values.filter((value) => {
+    if (idsVisited[value.id]) {
+      return false
+    }
+
+    idsVisited[value.id] = true
+
+    return true
+  })
 }
 
 export function castToTwoDecimalFloat(num: number): number {

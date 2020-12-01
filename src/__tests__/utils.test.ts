@@ -3,6 +3,7 @@ import {
   last,
   mergeProps,
   isNil,
+  uniqById,
   castToTwoDecimalFloat,
 } from '../utils'
 
@@ -55,7 +56,7 @@ describe('Utils', () => {
     })
 
     it('should return merged props (first try props1 and then props2) with valid values', () => {
-      const props1 = { a: 1, b: 0, c: 10 }
+      const props1 = { a: 1, c: 10 }
       const props2 = { a: 0, b: 2, d: 20 }
 
       const keys = ['a', 'b']
@@ -89,6 +90,41 @@ describe('Utils', () => {
       expect(isNil({ a: 10 })).toBe(false)
       expect(isNil([])).toBe(false)
       expect(isNil(['hello'])).toBe(false)
+    })
+  })
+
+  describe('uniqById', () => {
+    it('should return same empty array when empty array is passed', () => {
+      expect(uniqById([])).toEqual([])
+    })
+
+    it('should return same array if all props are unique by id', () => {
+      const ids = [{ id: '1' }, { id: '2' }, { id: '3' }]
+
+      expect(uniqById(ids)).toEqual(ids)
+    })
+
+    it('should return unique version of array if some elements have same id', () => {
+      const ids = [
+        { id: '1' },
+        { id: '2' },
+        { id: '3' },
+        { id: '2' },
+        { id: '1' },
+        { id: '4' },
+        { id: '3' },
+        { id: '5' },
+      ]
+
+      const expectedIds = [
+        { id: '1' },
+        { id: '2' },
+        { id: '3' },
+        { id: '4' },
+        { id: '5' },
+      ]
+
+      expect(uniqById(ids)).toEqual(expectedIds)
     })
   })
 

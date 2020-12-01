@@ -1,5 +1,4 @@
 import { convertFromBiggyProductsToCatalogApiProducts } from '../index'
-
 import {
   biggyExternalSellerProduct,
   biggySeller1Product,
@@ -71,11 +70,36 @@ describe('VTEX Search Mapper main functions', () => {
       expect(sellersSku5).toEqual(expectedSellersSku5)
     })
 
-    // it('with product on biggy format with external seller should return correct catalog product format', () => {
-    //   expect(
-    //     convertFromBiggyProductsToCatalogApiProducts([], EXTRA_INFO)
-    //   ).toEqual([])
-    // })
+    it('with product on biggy format with external seller should return correct catalog product format', () => {
+      const {
+        items: expectedItems,
+        ...expectedCatalogExternalSellerProductBase
+      } = expectedCatalogExternalSellerProduct
+
+      const [
+        { sellers: expectedSellersSku1, ...expectedSku1Base },
+      ] = expectedItems
+
+      const newCatalogExternalSellerProducts = convertFromBiggyProductsToCatalogApiProducts(
+        [biggyExternalSellerProduct],
+        EXTRA_INFO
+      )
+
+      const [newCatalogExternalSellerProduct] = newCatalogExternalSellerProducts
+      const {
+        items,
+        ...newCatalogExternalSellerProductBase
+      } = newCatalogExternalSellerProduct
+
+      const [{ sellers: sellersSku1, ...sku1Base }] = items
+
+      expect(newCatalogExternalSellerProductBase).toEqual(
+        expectedCatalogExternalSellerProductBase
+      )
+      expect(sku1Base).toEqual(expectedSku1Base)
+
+      expect(sellersSku1).toEqual(expectedSellersSku1)
+    })
 
     // it('with multiple products on biggy format should return correct catalog products format', () => {
     //   expect(

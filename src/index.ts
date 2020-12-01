@@ -18,6 +18,7 @@ import {
   getDateStringFromTimestamp,
   mergeProps,
   isNil,
+  uniqById,
   castToTwoDecimalFloat,
 } from './utils'
 
@@ -112,10 +113,11 @@ function convertFromBiggySkuToCatalogApiSellers(
   const { sc } = extraInfo
 
   let defaultSellerIndex = 0
+  let seller1WithStockIndex: number | undefined
 
   const currentPolicy = policies.find((policy) => policy.id === sc)
   const currentPolicySellers = currentPolicy ? currentPolicy.sellers : []
-  const skuSellers = sellers.length > 0 ? sellers : currentPolicySellers
+  const skuSellers = uniqById([...sellers, ...currentPolicySellers])
 
   const newSellers = skuSellers.map((rawSeller, index) => {
     const seller: BiggySkuSeller = {
@@ -126,8 +128,11 @@ function convertFromBiggySkuToCatalogApiSellers(
       }),
     }
 
-    if (seller.id === '1') {
+    if (seller.stock) {
       defaultSellerIndex = index
+      if (seller.id === '1') {
+        seller1WithStockIndex = index
+      }
     }
 
     return convertFromBiggySellerAndSkuToCatalogApiSeller(
@@ -136,6 +141,8 @@ function convertFromBiggySkuToCatalogApiSellers(
       extraInfo
     )
   })
+
+  defaultSellerIndex = seller1WithStockIndex ?? defaultSellerIndex
 
   if (newSellers[defaultSellerIndex]) {
     newSellers[defaultSellerIndex].sellerDefault = true
