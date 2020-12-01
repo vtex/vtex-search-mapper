@@ -223,6 +223,9 @@ function convertFromBiggyProductToCatalogApiItems(
 ): CatalogApiSku[] {
   const { skus } = product
 
+  // Catalog have items list ordered by sku ids, but biggy not necessarily
+  skus.sort((a: BiggySearchSku, b: BiggySearchSku) => (a.id < b.id ? -1 : 1))
+
   return skus.map((sku: BiggySearchSku) =>
     convertFromBiggySkuAndProductToCatalogApiItem(sku, product, extraInfo)
   )

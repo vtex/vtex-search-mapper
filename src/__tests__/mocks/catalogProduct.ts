@@ -1355,8 +1355,10 @@ export const catalogSeller1Product: CatalogApiProduct = {
     },
     {
       itemId: '2018620',
-      name: '2',
-      nameComplete: 'Camisa Comfort Azul Claro 2',
+      // name: '2',
+      name: '', // TODO: Biggy still don't have this
+      // nameComplete: 'Camisa Comfort Azul Claro 2',
+      nameComplete: '', // TODO: Biggy still don't have this
       complementName: '',
       ean: '',
       referenceId: [
@@ -1371,54 +1373,40 @@ export const catalogSeller1Product: CatalogApiProduct = {
       isKit: false,
       images: [
         {
-          imageId: '1683018',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto1',
-          imageTag:
-            '<img src="~/arquivos/ids/1683018-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1.jpg?v=636395137110230000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683018/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1.jpg?v=636395137110230000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1',
-          imageLastModified: '2017-08-28T10:41:51.0230000Z',
+          imageText: 'foto1', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
         {
-          imageId: '1683019',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto2',
-          imageTag:
-            '<img src="~/arquivos/ids/1683019-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2.jpg?v=636395137134430000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683019/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2.jpg?v=636395137134430000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2',
-          imageLastModified: '2017-08-28T10:41:53.4430000Z',
+          imageText: 'foto2', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
         {
-          imageId: '1683020',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto3',
-          imageTag:
-            '<img src="~/arquivos/ids/1683020-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3.jpg?v=636395137153430000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683020/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3.jpg?v=636395137153430000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3',
-          imageLastModified: '2017-08-28T10:41:55.3430000Z',
+          imageText: 'foto3', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
         {
-          imageId: '1683021',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto4',
-          imageTag:
-            '<img src="~/arquivos/ids/1683021-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4.jpg?v=636395137169000000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683021/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4.jpg?v=636395137169000000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4',
-          imageLastModified: '2017-08-28T10:41:56.9000000Z',
-        },
-        {
-          imageId: '1683022',
-          imageLabel: 'foto5',
-          imageTag:
-            '<img src="~/arquivos/ids/1683022-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_5.jpg?v=636395137181370000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_5" id="" />',
-          imageUrl:
-            'https://cea.vteximg.com.br/arquivos/ids/1683022/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_5.jpg?v=636395137181370000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_5',
-          imageLastModified: '2017-08-28T10:41:58.1370000Z',
+          imageText: 'foto4', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
       ],
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -1461,8 +1449,10 @@ export const catalogSeller1Product: CatalogApiProduct = {
     },
     {
       itemId: '2018621',
-      name: '3',
-      nameComplete: 'Camisa Comfort Azul Claro 3',
+      // name: '3',
+      name: '', // TODO: Biggy still don't have this
+      // nameComplete: 'Camisa Comfort Azul Claro 3',
+      nameComplete: '', // TODO: Biggy still don't have this
       complementName: '',
       ean: '',
       referenceId: [
@@ -1477,54 +1467,40 @@ export const catalogSeller1Product: CatalogApiProduct = {
       isKit: false,
       images: [
         {
-          imageId: '1683018',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto1',
-          imageTag:
-            '<img src="~/arquivos/ids/1683018-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1.jpg?v=636395137110230000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683018/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1.jpg?v=636395137110230000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1',
-          imageLastModified: '2017-08-28T10:41:51.0230000Z',
+          imageText: 'foto1', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
         {
-          imageId: '1683019',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto2',
-          imageTag:
-            '<img src="~/arquivos/ids/1683019-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2.jpg?v=636395137134430000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683019/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2.jpg?v=636395137134430000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2',
-          imageLastModified: '2017-08-28T10:41:53.4430000Z',
+          imageText: 'foto2', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
         {
-          imageId: '1683020',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto3',
-          imageTag:
-            '<img src="~/arquivos/ids/1683020-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3.jpg?v=636395137153430000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683020/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3.jpg?v=636395137153430000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3',
-          imageLastModified: '2017-08-28T10:41:55.3430000Z',
+          imageText: 'foto3', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
         {
-          imageId: '1683021',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto4',
-          imageTag:
-            '<img src="~/arquivos/ids/1683021-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4.jpg?v=636395137169000000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683021/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4.jpg?v=636395137169000000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4',
-          imageLastModified: '2017-08-28T10:41:56.9000000Z',
-        },
-        {
-          imageId: '1683022',
-          imageLabel: 'foto5',
-          imageTag:
-            '<img src="~/arquivos/ids/1683022-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_5.jpg?v=636395137181370000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_5" id="" />',
-          imageUrl:
-            'https://cea.vteximg.com.br/arquivos/ids/1683022/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_5.jpg?v=636395137181370000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_5',
-          imageLastModified: '2017-08-28T10:41:58.1370000Z',
+          imageText: 'foto4', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
       ],
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -1567,8 +1543,10 @@ export const catalogSeller1Product: CatalogApiProduct = {
     },
     {
       itemId: '2018622',
-      name: '4',
-      nameComplete: 'Camisa Comfort Azul Claro 4',
+      // name: '4',
+      name: '', // TODO: Biggy still don't have this
+      // nameComplete: 'Camisa Comfort Azul Claro 4',
+      nameComplete: '', // TODO: Biggy still don't have this
       complementName: '',
       ean: '',
       referenceId: [
@@ -1583,44 +1561,40 @@ export const catalogSeller1Product: CatalogApiProduct = {
       isKit: false,
       images: [
         {
-          imageId: '1683018',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto1',
-          imageTag:
-            '<img src="~/arquivos/ids/1683018-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1.jpg?v=636395137110230000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683018/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1.jpg?v=636395137110230000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1',
-          imageLastModified: '2017-08-28T10:41:51.0230000Z',
+          imageText: 'foto1', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
         {
-          imageId: '1683019',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto2',
-          imageTag:
-            '<img src="~/arquivos/ids/1683019-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2.jpg?v=636395137134430000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683019/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2.jpg?v=636395137134430000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2',
-          imageLastModified: '2017-08-28T10:41:53.4430000Z',
+          imageText: 'foto2', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
         {
-          imageId: '1683020',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto3',
-          imageTag:
-            '<img src="~/arquivos/ids/1683020-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3.jpg?v=636395137153430000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683020/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3.jpg?v=636395137153430000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3',
-          imageLastModified: '2017-08-28T10:41:55.3430000Z',
+          imageText: 'foto3', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
         {
-          imageId: '1683021',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto4',
-          imageTag:
-            '<img src="~/arquivos/ids/1683021-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4.jpg?v=636395137169000000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683021/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4.jpg?v=636395137169000000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4',
-          imageLastModified: '2017-08-28T10:41:56.9000000Z',
+          imageText: 'foto4', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
       ],
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -1663,8 +1637,10 @@ export const catalogSeller1Product: CatalogApiProduct = {
     },
     {
       itemId: '2018623',
-      name: '5',
-      nameComplete: 'Camisa Comfort Azul Claro 5',
+      // name: '5',
+      name: '', // TODO: Biggy still don't have this
+      // nameComplete: 'Camisa Comfort Azul Claro 5',
+      nameComplete: '', // TODO: Biggy still don't have this
       complementName: '',
       ean: '',
       referenceId: [
@@ -1679,44 +1655,40 @@ export const catalogSeller1Product: CatalogApiProduct = {
       isKit: false,
       images: [
         {
-          imageId: '1683018',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto1',
-          imageTag:
-            '<img src="~/arquivos/ids/1683018-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1.jpg?v=636395137110230000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683018/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1.jpg?v=636395137110230000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_1',
-          imageLastModified: '2017-08-28T10:41:51.0230000Z',
+          imageText: 'foto1', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
         {
-          imageId: '1683019',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto2',
-          imageTag:
-            '<img src="~/arquivos/ids/1683019-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2.jpg?v=636395137134430000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683019/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2.jpg?v=636395137134430000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_2',
-          imageLastModified: '2017-08-28T10:41:53.4430000Z',
+          imageText: 'foto2', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
         {
-          imageId: '1683020',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto3',
-          imageTag:
-            '<img src="~/arquivos/ids/1683020-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3.jpg?v=636395137153430000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683020/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3.jpg?v=636395137153430000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_3',
-          imageLastModified: '2017-08-28T10:41:55.3430000Z',
+          imageText: 'foto3', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
         {
-          imageId: '1683021',
+          imageId: '', // TODO: Biggy still don't have this
           imageLabel: 'foto4',
-          imageTag:
-            '<img src="~/arquivos/ids/1683021-#width#-#height#/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4.jpg?v=636395137169000000" width="#width#" height="#height#" alt="Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4" id="" />',
+          imageTag: '', // TODO: Biggy still don't have this
           imageUrl:
             'https://cea.vteximg.com.br/arquivos/ids/1683021/Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4.jpg?v=636395137169000000',
-          imageText: 'Camisa-Comfort-Azul-Claro-7591775-Azul_Claro_4',
-          imageLastModified: '2017-08-28T10:41:56.9000000Z',
+          imageText: 'foto4', // TODO: Biggy still don't have this
+          imageLastModified: '', // TODO: Biggy still don't have this
         },
       ],
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
