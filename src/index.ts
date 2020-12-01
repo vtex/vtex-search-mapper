@@ -27,8 +27,8 @@ interface ExtraBiggyToCatalogInfo {
   domain: string
 }
 
-type PriceKey = 'price' | 'oldPrice' | 'discount' | 'stock'
-const PRICE_KEYS: PriceKey[] = ['price', 'oldPrice', 'discount', 'stock']
+type PriceKey = 'price' | 'oldPrice' | 'stock'
+const PRICE_KEYS: PriceKey[] = ['price', 'oldPrice', 'stock']
 
 function convertFromBiggyInstallmentsToCatalogApiInstallments(
   totalValue: number,
@@ -67,9 +67,7 @@ function convertFromBiggySellerAndSkuToCatalogApiSeller(
   const pricesProps = {
     Price: seller.price ?? null,
     ListPrice: seller.oldPrice ?? null,
-    PriceWithoutDiscount: !isNil(seller?.price)
-      ? (seller?.price ?? 0) + (seller?.discount ?? 0)
-      : null,
+    PriceWithoutDiscount: seller.price ?? null, // TODO: Biggy still don't have this
   }
 
   const intPrice = Math.round((pricesProps.Price ?? 0) * 100)
