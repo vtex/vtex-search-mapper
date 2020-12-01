@@ -101,10 +101,16 @@ describe('VTEX Search Mapper main functions', () => {
       expect(sellersSku1).toEqual(expectedSellersSku1)
     })
 
-    // it('with multiple products on biggy format should return correct catalog products format', () => {
-    //   expect(
-    //     convertFromBiggyProductsToCatalogApiProducts([], EXTRA_INFO)
-    //   ).toEqual([])
-    // })
+    it('with multiple products on biggy format should return correct catalog products format', () => {
+      expect(
+        convertFromBiggyProductsToCatalogApiProducts(
+          [biggyExternalSellerProduct, biggySeller1Product],
+          EXTRA_INFO
+        )
+      ).toEqual([
+        expectedCatalogExternalSellerProduct,
+        expectedCatalogSeller1Product,
+      ])
+    })
   })
 })
